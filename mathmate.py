@@ -28,7 +28,7 @@ problem = st.text_input("Enter math problem (example: x^2 + 2*x + 1)")
 
 mode = st.selectbox(
     "Choose what to do",
-    ["Simplify", "Solve", "Differentiate", "Integrate"]
+    ["Calculate", "Simplify", "Solve", "Differentiate", "Integrate"]
 )
 
 x = sp.Symbol('x')
@@ -57,7 +57,14 @@ if st.button("Solve"):
         elif mode == "Integrate":
             result = sp.integrate(expr, x)
             st.success(result)
+          if mode == "Calculate":
+    result = expr.evalf()
+    st.success(result)
 
+elif mode == "Simplify":
+    result = sp.simplify(expr)
+    st.success(result)
+    
     except:
         st.error("Invalid input. Try something like: x**2 + 2*x + 1")
 
