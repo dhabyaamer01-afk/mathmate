@@ -43,12 +43,12 @@ if st.button("Solve"):
             st.success(result)
 
         elif mode == "Solve":
-            result = sp.solve(expr, x)
+    result = sp.solve(expr, x)
 
-if len(result) == 0:
-    st.warning("No solutions found")
-else:
-    st.success(result)
+    if len(result) == 0:
+        st.warning("No solutions found")
+    else:
+        st.success(result)
 
         elif mode == "Differentiate":
             result = sp.diff(expr, x)
