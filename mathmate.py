@@ -35,7 +35,6 @@ x = sp.Symbol('x')
 
 # Button
 if st.button("Solve"):
-if st.button("Solve"):
     try:
         expr = sp.sympify(problem)
 
