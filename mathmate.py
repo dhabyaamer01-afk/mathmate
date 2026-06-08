@@ -35,31 +35,31 @@ x = sp.Symbol('x')
 
 # Button
 if st.button("Solve"):
-    try:
-        expr = sp.sympify(problem)
+   try:
+    expr = sp.sympify(problem)
 
-        if mode == "Simplify":
-            result = sp.simplify(expr)
-            st.success(result)
-
-        elif mode == "Solve":
-    result = sp.solve(expr, x)
-
-    if len(result) == 0:
-        st.warning("No solutions found")
-    else:
+    if mode == "Simplify":
+        result = sp.simplify(expr)
         st.success(result)
 
-        elif mode == "Differentiate":
-            result = sp.diff(expr, x)
+    elif mode == "Solve":
+        result = sp.solve(expr, x)
+
+        if len(result) == 0:
+            st.warning("No solutions found")
+        else:
             st.success(result)
 
-        elif mode == "Integrate":
-            result = sp.integrate(expr, x)
-            st.success(result)
+    elif mode == "Differentiate":
+        result = sp.diff(expr, x)
+        st.success(result)
 
-    except:
-        st.error("Invalid input. Try something like: x^2 + 2*x + 1")
+    elif mode == "Integrate":
+        result = sp.integrate(expr, x)
+        st.success(result)
+
+except:
+    st.error("Invalid input. Try something like: x**2 + 2*x + 1")
 
 st.markdown("---")
 st.caption("MathMate AI - Simple Math Solver")
